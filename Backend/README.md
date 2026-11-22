@@ -1,1 +1,1 @@
-# BD1-WebsiteAvaliativo
+# Parte referente ao backend do sistema
