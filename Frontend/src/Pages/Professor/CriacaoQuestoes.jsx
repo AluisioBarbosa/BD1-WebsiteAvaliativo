@@ -135,7 +135,6 @@ export default function CriacaoQuestoes(){
                                     <button
                                         type="button"
                                         onClick={() => removerAlternativa(index)}
-                                        style={{padding: '0.4rem 0.6rem', cursor: 'pointer'}}
                                     >
                                         Remover
                                     </button>
@@ -147,7 +146,6 @@ export default function CriacaoQuestoes(){
                         <button
                             type="button"
                             onClick={adicionarAlternativa}
-                            style={{alignSelf: 'flex-start', padding: '0.4rem 0.8rem', cursor: 'pointer'}}
                         >
                             Adicionar alternativa
                         </button>
@@ -156,7 +154,7 @@ export default function CriacaoQuestoes(){
 
                 )}
 
-                <button type="submit" disabled={enviando} style={{padding: '0.6rem', cursor: 'pointer'}}>
+                <button type="submit" disabled={enviando}>
                     {enviando ? 'Salvando...' : 'Salvar Questão'}
                 </button>
 

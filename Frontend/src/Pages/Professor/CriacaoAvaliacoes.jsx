@@ -80,7 +80,7 @@ export default function CriacaoAvaliacoes({usuario}){
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
 
                 <h2>Nova avaliação</h2>
-                <Link to="/professor/avaliacoes">Voltar</Link>
+                <Link to="/professor/avaliacoes"><button>Voltar</button></Link>
 
             </div>
 
@@ -209,7 +209,7 @@ export default function CriacaoAvaliacoes({usuario}){
 
                 </div>
 
-                <button type="submit" disabled={enviando} style={{ padding: '0.6rem', cursor: 'pointer', marginTop: '0.5rem' }}>
+                <button type="submit" disabled={enviando}>
                     {enviando ? 'Salvando...' : 'Salvar Avaliação'}
                 </button>
 
