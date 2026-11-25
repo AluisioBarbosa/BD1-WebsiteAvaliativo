@@ -1,19 +1,19 @@
 package com.bancodedados.demo.Model;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class Avaliacao {
     private Long idAvaliacao;
     private String titulo;
     private String descricao;
     private LocalDate data;
-    private LocalTime horaInicio;
-    private LocalTime horaFim;
+    private LocalDateTime horaInicio;
+    private LocalDateTime horaFim;
     
     private Long idProfessor;
 
-    public Long getIdAvaliacao() {
+    public Long getId() {
         return idAvaliacao;
     }
 
@@ -29,11 +29,11 @@ public class Avaliacao {
         return data;
     }
 
-    public LocalTime getHoraInicio() {
+    public LocalDateTime getHoraInicio() {
         return horaInicio;
     }
 
-    public LocalTime getHoraFim() {
+    public LocalDateTime getHoraFim() {
         return horaFim;
     }
 
@@ -41,7 +41,7 @@ public class Avaliacao {
         return idProfessor;
     }
 
-    public void setIdAvaliacao(Long idAvaliacao) {
+    public void setId(Long idAvaliacao) {
         this.idAvaliacao = idAvaliacao;
     }
 
@@ -57,11 +57,11 @@ public class Avaliacao {
         this.data = data;
     }
 
-    public void setHoraInicio(LocalTime horaInicio) {
+    public void setHoraInicio(LocalDateTime horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public void setHoraFim(LocalTime horaFim) {
+    public void setHoraFim(LocalDateTime horaFim) {
         this.horaFim = horaFim;
     }
 
