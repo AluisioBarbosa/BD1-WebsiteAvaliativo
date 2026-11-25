@@ -39,7 +39,7 @@ public class AlunoDAO {
 
     // Nao pode usar o SELECT * pq se nao vem a senha junto
     public Aluno findByID(Long id){
-        String query = "SELECT u.id, u.nome, u.email FROM usuario u INNER JOIN alunos a ON u.id = a.id WHERE u.id = ?";
+        String query = "SELECT u.id, u.nome, u.email FROM usuario u INNER JOIN aluno a ON u.id = a.id WHERE u.id = ?";
         return jdbcTemplate.queryForObject(query, rowMapper, id);
     }
 
