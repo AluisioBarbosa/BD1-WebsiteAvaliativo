@@ -1,14 +1,14 @@
 package com.bancodedados.demo.Model;
 
 public class Questao {
-    private Integer idQuestao;
+    private Long idQuestao;
     private String enunciado;
     private String tipo;
 
-    public Integer getIdQuestao() {
+    public Long getIdQuestao() {
         return idQuestao;
     }
-    public void setIdQuestao(Integer idQuestao) {
+    public void setIdQuestao(Long idQuestao) {
         this.idQuestao = idQuestao;
     }
     public String getEnunciado() {

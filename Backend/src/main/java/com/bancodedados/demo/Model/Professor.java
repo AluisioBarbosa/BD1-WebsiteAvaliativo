@@ -6,7 +6,7 @@ public class Professor extends Usuario{
         super();
     }
 
-    public Professor(Integer id, String nome, String email, String senha) {
+    public Professor(Long id, String nome, String email, String senha) {
         super(id, nome, email, senha);
     }
 

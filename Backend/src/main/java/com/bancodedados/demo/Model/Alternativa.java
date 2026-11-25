@@ -1,14 +1,14 @@
 package com.bancodedados.demo.Model;
 
 public class Alternativa {
-    private Integer idAlternativa;
+    private Long idAlternativa;
     private String descricao;
     private boolean correta;
     
-    public Integer getIdAlternativa() {
+    public Long getIdAlternativa() {
         return idAlternativa;
     }
-    public void setIdAlternativa(Integer idAlternativa) {
+    public void setIdAlternativa(Long idAlternativa) {
         this.idAlternativa = idAlternativa;
     }
     public String getDescricao() {

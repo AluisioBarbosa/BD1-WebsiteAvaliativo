@@ -4,16 +4,16 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Avaliacao {
-    private Integer idAvaliacao;
+    private Long idAvaliacao;
     private String titulo;
     private String descricao;
     private LocalDate data;
     private LocalTime horaInicio;
     private LocalTime horaFim;
     
-    private Integer idProfessor;
+    private Long idProfessor;
 
-    public Integer getIdAvaliacao() {
+    public Long getIdAvaliacao() {
         return idAvaliacao;
     }
 
@@ -37,11 +37,11 @@ public class Avaliacao {
         return horaFim;
     }
 
-    public Integer getIdProfessor() {
+    public Long getIdProfessor() {
         return idProfessor;
     }
 
-    public void setIdAvaliacao(Integer idAvaliacao) {
+    public void setIdAvaliacao(Long idAvaliacao) {
         this.idAvaliacao = idAvaliacao;
     }
 
@@ -65,7 +65,7 @@ public class Avaliacao {
         this.horaFim = horaFim;
     }
 
-    public void setIdProfessor(Integer idProfessor) {
+    public void setIdProfessor(Long idProfessor) {
         this.idProfessor = idProfessor;
     }
     

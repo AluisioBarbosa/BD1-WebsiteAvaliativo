@@ -6,7 +6,7 @@ public class Aluno extends Usuario {
         super();
     }
 
-    public Aluno(Integer id, String nome, String email, String senha) {
+    public Aluno(Long id, String nome, String email, String senha) {
         super(id, nome, email, senha);
     }
 
