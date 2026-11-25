@@ -9,10 +9,10 @@ public class Resposta {
     private Long idAvaliacao;
     private Long idQuestao;
     private Long idAlternativa;
-    public Long getIdResposta() {
+    public Long getId() {
         return idResposta;
     }
-    public void setIdResposta(Long idResposta) {
+    public void setId(Long idResposta) {
         this.idResposta = idResposta;
     }
     public String getTextoResposta() {

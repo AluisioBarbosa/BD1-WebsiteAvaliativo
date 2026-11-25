@@ -80,7 +80,7 @@ public class UsuarioDAO {
         List<Usuario> lista = new ArrayList<>();
         lista = jdbcTemplate.query(query, rowMapper, id);
 
-        // se der tempo de tratar para 2 pessoas não usarem o mesmo email, tirar essa gambiarra aqui
+        // gambiarra
         if(lista.size() <= 0){
             return null;
         }

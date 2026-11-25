@@ -4,11 +4,12 @@ public class Alternativa {
     private Long idAlternativa;
     private String descricao;
     private boolean correta;
+    private long idQuestao;
     
-    public Long getIdAlternativa() {
+    public Long getId() {
         return idAlternativa;
     }
-    public void setIdAlternativa(Long idAlternativa) {
+    public void setId(Long idAlternativa) {
         this.idAlternativa = idAlternativa;
     }
     public String getDescricao() {
@@ -22,6 +23,12 @@ public class Alternativa {
     }
     public void setCorreta(boolean correta) {
         this.correta = correta;
+    }
+    public long getIdQuestao() {
+        return idQuestao;
+    }
+    public void setIdQuestao(long idQuestao) {
+        this.idQuestao = idQuestao;
     }
 
     

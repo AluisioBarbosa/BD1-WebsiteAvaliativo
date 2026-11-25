@@ -5,10 +5,10 @@ public class Questao {
     private String enunciado;
     private String tipo;
 
-    public Long getIdQuestao() {
+    public Long getId() {
         return idQuestao;
     }
-    public void setIdQuestao(Long idQuestao) {
+    public void setId(Long idQuestao) {
         this.idQuestao = idQuestao;
     }
     public String getEnunciado() {

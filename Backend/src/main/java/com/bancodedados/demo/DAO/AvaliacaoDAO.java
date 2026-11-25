@@ -5,10 +5,12 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bancodedados.demo.Model.Avaliacao;
 
+@Repository
 public class AvaliacaoDAO {
     private final JdbcTemplate jdbcTemplate;
 
@@ -30,8 +32,7 @@ public class AvaliacaoDAO {
     public Long save(Avaliacao avaliacao) {
         String query = "INSERT INTO avaliacao (titulo, descricao, hora_inicio, hora_fim, id_professor) VALUES (?, ?, ?, ?, ?) RETURNING id";
         return jdbcTemplate.queryForObject(query, Long.class, avaliacao.getTitulo(), avaliacao.getDescricao(), Timestamp.valueOf(avaliacao.getHoraInicio()),
-                                        Timestamp.valueOf(avaliacao.getHoraFim()), avaliacao.getIdProfessor()
-        );
+                                        Timestamp.valueOf(avaliacao.getHoraFim()), avaliacao.getIdProfessor());
     }
 
     public Avaliacao findByID(Long id) {
@@ -52,8 +53,7 @@ public class AvaliacaoDAO {
     public void update(Avaliacao avaliacao) {
         String query = "UPDATE avaliacao SET titulo = ?, descricao = ?, hora_inicio = ?, hora_fim = ? WHERE id = ?";
         jdbcTemplate.update(query, avaliacao.getTitulo(), avaliacao.getDescricao(), Timestamp.valueOf(avaliacao.getHoraInicio()),
-                            Timestamp.valueOf(avaliacao.getHoraFim()), avaliacao.getId()
-        );
+                            Timestamp.valueOf(avaliacao.getHoraFim()), avaliacao.getId());
     }
 
     @Transactional
