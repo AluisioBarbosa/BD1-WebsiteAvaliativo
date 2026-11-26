@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.bancodedados.demo.Model.Alternativa;
 
+@Repository 
 public class AlternativaDAO {
     private final JdbcTemplate jdbcTemplate;
 

@@ -57,7 +57,7 @@ public class RespostaDAO {
         jdbcTemplate.update(query, resposta.getIdAlternativa(), resposta.getTextoResposta(), resposta.getNota(), resposta.getId());
     }
 
-    public void atribuirNota(Long idResposta, double nota) {
+    public void atribuirNota(Long idResposta, Double nota) {
         String query = "UPDATE resposta SET nota = ? WHERE id = ?";
         jdbcTemplate.update(query, nota, idResposta);
     }

@@ -30,11 +30,12 @@ public class ProfessorDAO {
 
     // Primeiro põe na tabela pai Usuario e depois põe o id referenciando na professor, Usuario -> professor
     @Transactional 
-    public void save(Professor professor){
+    public Long save(Professor professor){
         String queryTabelaUsuario = "INSERT INTO usuario (nome, email, senha) VALUES (?, ?, ?) RETURNING id";
         Long id = jdbcTemplate.queryForObject(queryTabelaUsuario, Long.class, professor.getNome(), professor.getEmail(), professor.getSenha());
         String queryTabelaProfessor = "INSERT INTO professor (id) VALUES (?)";
         jdbcTemplate.update(queryTabelaProfessor, id);
+        return id;
     }
 
     // Nao pode usar o SELECT * pq se nao vem a senha junto

@@ -23,7 +23,7 @@ public class UsuarioDAO {
     private final RowMapper<Usuario> rowMapperLogin = (rs, rowNum) -> {
         String tipo = rs.getString("tipo");
         Usuario usuario;
-        if(tipo.equals("Professor")){
+        if(tipo.equals("professor")){
             usuario = new Professor();
         }
         else{
@@ -39,7 +39,7 @@ public class UsuarioDAO {
     private final RowMapper<Usuario> rowMapper = (rs, rowNum) -> {
         String tipo = rs.getString("tipo");
         Usuario usuario;
-        if(tipo.equals("Professor")){
+        if(tipo.equals("professor")){
             usuario = new Professor();
         }
         else{
@@ -51,7 +51,7 @@ public class UsuarioDAO {
         return usuario;
     };
 
-    private Usuario findByEmail(String email){
+    public Usuario findByEmail(String email){
         String query = "SELECT u.id, u.nome, u.email, u.senha, " +
                             "CASE " +
                                 "WHEN p.id IS NOT NULL THEN 'professor' " +
@@ -69,8 +69,8 @@ public class UsuarioDAO {
         return lista.get(0);
     }
 
-    private Usuario findById(Long id){
-        String query = "SELECT u.id, u.nome, u.email " +
+    public Usuario findById(Long id){
+        String query = "SELECT u.id, u.nome, u.email, " +
                             "CASE " +
                                 "WHEN p.id IS NOT NULL THEN 'professor' " +
                                 "WHEN a.id IS NOT NULL THEN 'aluno' " +
@@ -87,8 +87,8 @@ public class UsuarioDAO {
         return lista.get(0);
     }
 
-    private List<Usuario> findAll(){
-        String query = "SELECT u.id, u.nome, u.email " +
+    public List<Usuario> findAll(){
+        String query = "SELECT u.id, u.nome, u.email, " +
                             "CASE " +
                                 "WHEN p.id IS NOT NULL THEN 'professor' " +
                                 "WHEN a.id IS NOT NULL THEN 'aluno' " +
@@ -104,7 +104,7 @@ public class UsuarioDAO {
         return lista;
     }
 
-    private boolean verificarCadastro(String email){
+    public boolean verificarCadastro(String email){
         // gambiarra
         Usuario usuario = findByEmail(email);
         if(usuario == null){

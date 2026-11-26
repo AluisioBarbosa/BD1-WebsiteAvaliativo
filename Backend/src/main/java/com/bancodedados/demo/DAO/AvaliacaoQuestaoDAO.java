@@ -45,7 +45,7 @@ public class AvaliacaoQuestaoDAO {
     }
 
     public List<AvaliacaoQuestao> findByAvaliacao(Long idAvaliacao) {
-        String query = "SELECT id_avaliacao, id_questao, valor, ordem_questoes FROM avaliacao_questao" +
+        String query = "SELECT id_avaliacao, id_questao, valor, ordem_questoes FROM avaliacao_questao " +
                             "WHERE id_avaliacao = ? ORDER BY ordem_questoes";
         return jdbcTemplate.query(query, rowMapper, idAvaliacao);
     }
