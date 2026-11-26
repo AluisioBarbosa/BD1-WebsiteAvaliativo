@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.bancodedados.demo.DAO.RealizaDAO;
 import com.bancodedados.demo.Model.Realiza;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/realiza")
 public class RealizaController {

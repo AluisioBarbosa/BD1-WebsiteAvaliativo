@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.bancodedados.demo.DAO.AlunoDAO;
 import com.bancodedados.demo.Model.Aluno;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/alunos")
 public class AlunoController {

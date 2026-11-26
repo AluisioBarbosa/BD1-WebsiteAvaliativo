@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.bancodedados.demo.DAO.AvaliacaoDAO;
 import com.bancodedados.demo.Model.Avaliacao;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/avaliacoes")
 public class AvaliacaoController {
