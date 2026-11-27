@@ -30,6 +30,7 @@ public class RelatorioDAO {
                 "GROUP BY id_avaliacao, id_aluno " +
             ") sub ON sub.id_avaliacao = av.id AND sub.id_aluno = r.id_aluno " +
             "GROUP BY av.id, av.titulo " +
+            "HAVING COUNT(DISTINCT r.id_aluno) >= 0 " +
             "ORDER BY av.id DESC";
         return jdbcTemplate.queryForList(query);
     }
@@ -44,7 +45,7 @@ public class RelatorioDAO {
             "JOIN usuario u ON u.id = r.id_aluno " +
             "LEFT JOIN resposta resp ON resp.id_aluno = r.id_aluno AND resp.id_avaliacao = r.id_avaliacao " +
             "LEFT JOIN questao q ON q.id = resp.id_questao " +
-            "WHERE r.id_avaliacao = ? " +
+            "WHERE r.id_avaliacao = ? AND r.status_avaliacao IN ('CONCLUIDA', 'EM_ANDAMENTO', 'PENDENTE') " +
             "GROUP BY u.id, u.nome, r.status_avaliacao, r.id_avaliacao " +
             "ORDER BY nota_obtida DESC, u.nome ";
         return jdbcTemplate.queryForList(query, idAvaliacao);

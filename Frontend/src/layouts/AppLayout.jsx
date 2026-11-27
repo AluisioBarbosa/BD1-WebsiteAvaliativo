@@ -25,6 +25,7 @@ export default function AppLayout({usuario, onLogout}){
                         <Link to="/professor/avaliacoes">Avaliações</Link>
                         <Link to="/professor/atribuir">Atribuir Alunos</Link>
                         <Link to="/professor/corrigir">Corrigir Provas</Link>
+                        <Link to="/relatorios">Relatórios</Link>
                     </>
                 ) : (
                     <>
@@ -32,8 +33,6 @@ export default function AppLayout({usuario, onLogout}){
                     <Link to="/aluno/resultados">Meus Resultados</Link>
                     </>
                 )}
-
-                <Link to="/relatorios">Relatórios</Link>
 
                 <div style={{ marginLeft: 'auto' }}>
                     {usuario ? (
