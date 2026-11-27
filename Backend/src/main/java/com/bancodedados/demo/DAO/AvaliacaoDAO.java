@@ -2,6 +2,7 @@ package com.bancodedados.demo.DAO;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -50,6 +51,18 @@ public class AvaliacaoDAO {
         return jdbcTemplate.query(query, rowMapper, idProfessor);
     }
 
+    public List<Map<String, Object>> findByAluno(Long idAluno) {
+        String query = "SELECT a.id, a.titulo, a.descricao, a.hora_inicio, a.hora_fim, r.status_avaliacao FROM avaliacao a " +
+                        "JOIN realiza r ON r.id_avaliacao = a.id WHERE r.id_aluno = ? ORDER BY a.hora_inicio DESC";
+        return jdbcTemplate.queryForList(query, idAluno);
+    }
+
+    public List<Map<String, Object>> findQuestoesParaResponder(Long idAvaliacao) {
+        String query = "SELECT q.id, q.enunciado, q.tipo, aq.valor, aq.ordem_questoes FROM avaliacao_questao aq JOIN questao q " +
+                        "ON q.id = aq.id_questao WHERE aq.id_avaliacao = ? ORDER BY aq.ordem_questoes";
+        return jdbcTemplate.queryForList(query, idAvaliacao);
+    }
+
     public void update(Avaliacao avaliacao) {
         String query = "UPDATE avaliacao SET titulo = ?, descricao = ?, hora_inicio = ?, hora_fim = ? WHERE id = ?";
         jdbcTemplate.update(query, avaliacao.getTitulo(), avaliacao.getDescricao(), Timestamp.valueOf(avaliacao.getHoraInicio()),
@@ -58,7 +71,9 @@ public class AvaliacaoDAO {
 
     @Transactional
     public void delete(Long id) {
-        String query = "DELETE FROM avaliacao WHERE id = ?";
-        jdbcTemplate.update(query, id);
+        jdbcTemplate.update("DELETE FROM resposta WHERE id_avaliacao = ?", id);
+        jdbcTemplate.update("DELETE FROM realiza WHERE id_avaliacao = ?", id);
+        jdbcTemplate.update("DELETE FROM avaliacao_questao WHERE id_avaliacao = ?", id);
+        jdbcTemplate.update("DELETE FROM avaliacao WHERE id = ?", id);
     }
 }
