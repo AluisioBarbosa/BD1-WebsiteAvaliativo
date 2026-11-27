@@ -45,7 +45,9 @@ public class QuestaoDAO {
     }
 
     public void delete(Long id) {
-        String query = "DELETE FROM questao WHERE id = ?";
-        jdbcTemplate.update(query, id);
+        jdbcTemplate.update("DELETE FROM alternativa WHERE idQuestao = ?", id);
+        jdbcTemplate.update("DELETE FROM questao WHERE id = ?", id);
     }
+
+    
 }
