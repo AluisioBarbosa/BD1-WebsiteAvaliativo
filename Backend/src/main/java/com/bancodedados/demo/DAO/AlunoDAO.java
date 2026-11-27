@@ -63,8 +63,14 @@ public class AlunoDAO {
     }
 
     public void update(Aluno aluno){
-        String query = "UPDATE usuario SET nome = ?, email = ?, senha = ? WHERE id = ?";
-        jdbcTemplate.update(query, aluno.getNome(), aluno.getEmail(), aluno.getSenha(), aluno.getId());
+        if (aluno.getSenha() != null && !aluno.getSenha().isEmpty()) {
+            String query = "UPDATE usuario SET nome = ?, email = ?, senha = ? WHERE id = ?";
+            jdbcTemplate.update(query, aluno.getNome(), aluno.getEmail(), aluno.getSenha(), aluno.getId());
+        } 
+        else {
+            String query = "UPDATE usuario SET nome = ?, email = ? WHERE id = ?";
+            jdbcTemplate.update(query, aluno.getNome(), aluno.getEmail(), aluno.getId());
+        }
     }
 
 }
