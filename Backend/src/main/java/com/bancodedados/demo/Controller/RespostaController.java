@@ -42,7 +42,7 @@ public class RespostaController {
 
         // se por algum a caso a respota ja tiver sido respondida da erro né
         Realiza atual = realizaDAO.findByID(idAluno, idAvaliacao);
-        if ("RESPONDIDA".equals(atual.getStatusAvaliacao())) {
+        if ("CONCLUIDA".equals(atual.getStatusAvaliacao())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
 
@@ -69,7 +69,7 @@ public class RespostaController {
         Realiza realiza = new Realiza();
         realiza.setIdAluno(idAluno);
         realiza.setIdAvaliacao(idAvaliacao);
-        realiza.setStatusAvaliacao("RESPONDIDA");
+        realiza.setStatusAvaliacao("CONCLUIDA");
         realizaDAO.update(realiza);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();

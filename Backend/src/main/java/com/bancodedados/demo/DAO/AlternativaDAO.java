@@ -21,28 +21,28 @@ public class AlternativaDAO {
         alternativa.setId(rs.getLong("id"));
         alternativa.setDescricao(rs.getString("descricao"));
         alternativa.setCorreta(rs.getBoolean("correta"));
-        alternativa.setIdQuestao(rs.getLong("idQuestao"));
+        alternativa.setIdQuestao(rs.getLong("id_questao"));
         return alternativa;
     };
 
     public Long save(Alternativa alternativa) {
-        String query = "INSERT INTO alternativa (descricao, correta, idQuestao) VALUES (?, ?, ?) RETURNING id";
+        String query = "INSERT INTO alternativa (descricao, correta, id_questao) VALUES (?, ?, ?) RETURNING id";
         return jdbcTemplate.queryForObject(query, Long.class, alternativa.getDescricao(), 
                                             alternativa.isCorreta(), alternativa.getIdQuestao());
     }
 
     public Alternativa findByID(Long id) {
-        String query = "SELECT id, descricao, correta, idQuestao FROM alternativa WHERE id = ?";
+        String query = "SELECT id, descricao, correta, id_questao FROM alternativa WHERE id = ?";
         return jdbcTemplate.queryForObject(query, rowMapper, id);
     }
 
     public List<Alternativa> findAll() {
-        String query = "SELECT id, descricao, correta, idQuestao FROM alternativa";
+        String query = "SELECT id, descricao, correta, id_questao FROM alternativa";
         return jdbcTemplate.query(query, rowMapper);
     }
 
     public List<Alternativa> findByQuestao(Long idQuestao) {
-        String query = "SELECT id, descricao, correta, idQuestao FROM alternativa WHERE idQuestao = ? ORDER BY id";
+        String query = "SELECT id, descricao, correta, id_questao FROM alternativa WHERE id_questao = ? ORDER BY id";
         return jdbcTemplate.query(query, rowMapper, idQuestao);
     }
 
@@ -63,7 +63,7 @@ public class AlternativaDAO {
     }
 
     public void deleteByQuestao(Long idQuestao) {
-        String query = "DELETE FROM alternativa WHERE idQuestao = ?";
+        String query = "DELETE FROM alternativa WHERE id_questao = ?";
         jdbcTemplate.update(query, idQuestao);
     }
 }

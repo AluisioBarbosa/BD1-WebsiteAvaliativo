@@ -18,7 +18,7 @@ public class RelatorioDAO {
     public List<Map<String, Object>> resumoPorAvaliacao() {
         String query = "SELECT av.id AS id_avaliacao, av.titulo, " +
                    "COUNT(DISTINCT r.id_aluno) AS total_alunos, " +
-                   "COUNT(DISTINCT CASE WHEN r.status_avaliacao = 'RESPONDIDA' THEN r.id_aluno END) AS total_respondidas, " +
+                   "COUNT(DISTINCT CASE WHEN r.status_avaliacao = 'CONCLUIDA' THEN r.id_aluno END) AS total_respondidas, " +
                    "COALESCE(ROUND(AVG(sub.nota_aluno)::numeric, 2), 0.0) AS media_notas, " +
                    "COALESCE(MAX(sub.nota_aluno), 0.0) AS maior_nota, " +
                    "COALESCE(MIN(sub.nota_aluno), 0.0) AS menor_nota " +
@@ -39,7 +39,7 @@ public class RelatorioDAO {
                    "COALESCE(SUM(resp.nota), 0.0) AS nota_obtida, " +
                    "COALESCE((SELECT SUM(aq.valor) FROM avaliacao_questao aq WHERE aq.id_avaliacao = r.id_avaliacao), 0.0) " +
                     "AS valor_total, " +
-                   "COUNT(CASE WHEN q.tipo = 'textoLivre' AND resp.nota IS NULL THEN 1 END) AS pendentes_correcao " +
+                   "COUNT(CASE WHEN q.tipo = 'DISSERTATIVA' AND resp.nota IS NULL THEN 1 END) AS pendentes_correcao " +
             "FROM realiza r " +
             "JOIN usuario u ON u.id = r.id_aluno " +
             "LEFT JOIN resposta resp ON resp.id_aluno = r.id_aluno AND resp.id_avaliacao = r.id_avaliacao " +
@@ -67,10 +67,10 @@ public class RelatorioDAO {
     public Map<String, Object> resumoGeral() {
         String query ="SELECT (SELECT COUNT(*) FROM avaliacao) AS total_avaliacoes, " +
                    "(SELECT COUNT(*) FROM questao) AS total_questoes, " +
-                   "(SELECT COUNT(*) FROM realiza WHERE status_avaliacao = 'RESPONDIDA') AS provas_entregues, " +
+                   "(SELECT COUNT(*) FROM realiza WHERE status_avaliacao = 'CONCLUIDA') AS provas_entregues, " +
                    "(SELECT COUNT(*) FROM resposta r " +
                     "JOIN questao q ON q.id = r.id_questao " +
-                    "WHERE q.tipo = 'textoLivre' AND r.nota IS NULL) AS texto_livre_pendentes";
+                    "WHERE q.tipo = 'DISSERTATIVA' AND r.nota IS NULL) AS texto_livre_pendentes";
         return jdbcTemplate.queryForMap(query);
     }
 }
