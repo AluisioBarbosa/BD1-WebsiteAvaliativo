@@ -178,7 +178,7 @@ export default function CriacaoAvaliacoes({usuario}){
 
                                     <span style={{flex: 1}}>
 
-                                        <strong>[{q.tipo}]</strong> {q.enunciado}
+                                        <strong>{q.tipo === "MULTIPLA_ESCOLHA" ? "Objetiva" : "Subjetiva"} | </strong> {q.enunciado}
 
                                     </span>
 

@@ -103,8 +103,8 @@ export default function CriacaoQuestoes(){
                     onChange={(e) => definirCampo('tipo', e.target.value)}
                     style={{padding: '0.5rem'}}
                 >
-                    <option value="MULTIPLA_ESCOLHA">Múltipla escolha</option>
-                    <option value="DISSERTATIVA">Texto livre</option>
+                    <option value="MULTIPLA_ESCOLHA">Objetiva</option>
+                    <option value="DISSERTATIVA">Subjetiva</option>
                 </select>
 
                 {dados.tipo === 'MULTIPLA_ESCOLHA' && (

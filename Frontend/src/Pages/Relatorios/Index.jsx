@@ -232,7 +232,15 @@ export default function Relatorios() {
 
                             <tr key={q.id_questao}>
                                 <td style={td}>Q{i + 1}: {q.enunciado}</td>
-                                <td style={td}>{q.tipo}</td>
+                                <td style={td}>
+
+                                    {q.tipo === "DISSERTATIVA" ? (
+                                        "Subjetiva"
+                                    ) : (
+                                        "Objetiva"
+                                    )}
+
+                                </td>
                                 <td style={td}>{Number(q.valor_maximo || 0).toFixed(2)}</td>
                                 <td style={td}>{q.total_respostas}</td>
                                 <td style={td}>{Number(q.media_nota || 0).toFixed(2)}</td>

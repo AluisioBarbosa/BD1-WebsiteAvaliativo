@@ -39,7 +39,7 @@ export default function CorrigirProvas() {
 
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
 
-                <h2>Corrigir questões de texto livre</h2>
+                <h2>Corrigir questões subjetivas</h2>
 
             </div>
 
