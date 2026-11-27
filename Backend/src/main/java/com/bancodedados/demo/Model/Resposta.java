@@ -3,7 +3,7 @@ package com.bancodedados.demo.Model;
 public class Resposta {
     private Long idResposta;
     private String textoResposta;
-    private double nota;
+    private Double nota;
 
     private Long idAluno;
     private Long idAvaliacao;
@@ -21,10 +21,10 @@ public class Resposta {
     public void setTextoResposta(String textoResposta) {
         this.textoResposta = textoResposta;
     }
-    public double getNota() {
+    public Double getNota() {
         return nota;
     }
-    public void setNota(double nota) {
+    public void setNota(Double nota) {
         this.nota = nota;
     }
     public Long getIdAluno() {
