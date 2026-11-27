@@ -33,7 +33,7 @@ export default function ListaQuestoes(){
                             </>
                         )}
 
-                        {q.tipo === "TEXTO_LIVRE" && (
+                        {q.tipo === "DISSERTATIVA" && (
                             <>
                                 <strong>Subjetiva |</strong> {q.enunciado}
                             </>

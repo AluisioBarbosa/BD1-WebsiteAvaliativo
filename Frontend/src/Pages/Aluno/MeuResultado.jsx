@@ -27,7 +27,7 @@ export default function MeuResultado({usuario}) {
 
                                 <h3 style={{ margin: 0 }}>{res.titulo}</h3>
                                 <strong style={{ fontSize: '1.1rem' }}>
-                                    Nota Total: {res.notaTotal.toFixed(1)} / {res.valorTotal.toFixed(1)}
+                                    Nota Total: {(res.notaTotal ?? 0).toFixed(1)} / {(res.valorTotal ?? 0).toFixed(1)}
                                 </strong>
 
                             </div>

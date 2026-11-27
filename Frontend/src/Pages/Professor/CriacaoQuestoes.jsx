@@ -104,7 +104,7 @@ export default function CriacaoQuestoes(){
                     style={{padding: '0.5rem'}}
                 >
                     <option value="MULTIPLA_ESCOLHA">Múltipla escolha</option>
-                    <option value="TEXTO_LIVRE">Texto livre</option>
+                    <option value="DISSERTATIVA">Texto livre</option>
                 </select>
 
                 {dados.tipo === 'MULTIPLA_ESCOLHA' && (
