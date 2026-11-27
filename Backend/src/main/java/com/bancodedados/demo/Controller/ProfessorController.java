@@ -21,9 +21,9 @@ public class ProfessorController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> criar(@RequestBody Professor professor) {
-        professorDAO.save(professor);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<Long> criar(@RequestBody Professor professor) {
+        Long id = professorDAO.save(professor);
+        return ResponseEntity.status(HttpStatus.CREATED).body(id);
     }
 
     @GetMapping
