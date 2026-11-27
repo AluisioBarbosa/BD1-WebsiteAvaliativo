@@ -53,4 +53,9 @@ public class AlternativaController {
         alternativaDAO.delete(id);
         return ResponseEntity.noContent().build();
     }
+    @DeleteMapping("/questao/{idQuestao}")
+    public ResponseEntity<Void> deletarPorQuestao(@PathVariable Long idQuestao) {
+        alternativaDAO.deleteByQuestao(idQuestao);
+        return ResponseEntity.noContent().build();
+    }
 }
