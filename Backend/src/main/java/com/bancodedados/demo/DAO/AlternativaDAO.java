@@ -42,7 +42,7 @@ public class AlternativaDAO {
     }
 
     public List<Alternativa> findByQuestao(Long idQuestao) {
-        String query = "SELECT id, descricao, correta, idQuestao FROM alternativa WHERE idQuestao = ?";
+        String query = "SELECT id, descricao, correta, idQuestao FROM alternativa WHERE idQuestao = ? ORDER BY id";
         return jdbcTemplate.query(query, rowMapper, idQuestao);
     }
 
@@ -54,5 +54,16 @@ public class AlternativaDAO {
     public void delete(Long id) {
         String query = "DELETE FROM alternativa WHERE id = ?";
         jdbcTemplate.update(query, id);
+    }
+
+    public boolean isCorreta(Long idAlternativa) {
+        String query = "SELECT correta FROM alternativa WHERE id = ?";
+        Boolean correta = jdbcTemplate.queryForObject(query, Boolean.class, idAlternativa);
+        return Boolean.TRUE.equals(correta);
+    }
+
+    public void deleteByQuestao(Long idQuestao) {
+        String query = "DELETE FROM alternativa WHERE idQuestao = ?";
+        jdbcTemplate.update(query, idQuestao);
     }
 }
